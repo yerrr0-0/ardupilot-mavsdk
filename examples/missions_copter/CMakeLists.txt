@@ -9,14 +9,22 @@ add_executable(missions_copter
     missions_copter.cpp
 )
 
+add_executable(missions_copter_test
+    missions_copter_test.cpp
+)
+
 find_package(MAVSDK REQUIRED)
 
 target_link_libraries(missions_copter
     MAVSDK::mavsdk
 )
 
+target_link_libraries(missions_copter_test
+    MAVSDK::mavsdk
+)
+
 if(NOT MSVC)
-    add_compile_options(missions_copter PRIVATE -Wall -Wextra)
+    add_compile_options(missions_copter missions_copter_test PRIVATE -Wall -Wextra)
 else()
-    add_compile_options(missions_copter PRIVATE -WX -W2)
+    add_compile_options(missions_copter missions_copter_test PRIVATE -WX -W2)
 endif()
