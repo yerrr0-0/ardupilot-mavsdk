@@ -9,7 +9,7 @@
 // 2010  cd build/
 // 2011  cmake ../
 // 2012  make -j4
-// ./missions_copter udping://:14550
+// ./missions_copter udp://:14550
 
 //
 
